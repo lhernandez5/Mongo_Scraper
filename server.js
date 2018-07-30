@@ -2,10 +2,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
-// Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
-// It works on the client and on the server
 var axios = require("axios");
 var cheerio = require("cheerio");
 
@@ -27,13 +23,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
-
 
 app.get("/scrape", function(req, res) {
   axios.get("https://www.npr.org/sections/news/").then(function(response) {
@@ -91,11 +87,7 @@ app.post("/api/articles/:id", function(req, res) {
   db.Comments.create(req.body)
     .then(function(dbComments) {
       // return db.Article.findOneAndUpdate({},{ comment: dbComments._id },{ new: true });
-      return db.Article.findOneAndUpdate(
-        {},
-        { $push: { comment: dbComments._id } },
-        { new: true }
-      );
+      return db.Article.findByIdAndUpdate({ _id: req.params.id }, { $push: { comment: dbComments._id } },{ new: true });
     })
     .then(function(dbArticle) {
       res.json(dbArticle);
@@ -106,10 +98,10 @@ app.post("/api/articles/:id", function(req, res) {
 });
 
 app.delete("/api/articles/:id", function(req, res) {
-  db.Comments.findByIdAndRemove({ _id: req.params.id })
-    .then(function(err) {
-      if(err) throw err;
-    });
+  db.Comments.remove({ _id: req.params.id})
+    .then(function() {
+      res.end();
+  });
 });
 
 // Start the server
