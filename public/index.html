@@ -1,36 +1,81 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Mongo Scrapper</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <title>Scraping With Mongoose</title>
+  <style>
+    #wrapper {
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 5%;
+    }
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    #articles {
+      display: inline-block;
+      overflow: auto;
+      width: 60%;
+      width: 80%;
+      /* height: 700px; */
+      height: 400px;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    #comments {
+      float: right;
+      /* width: 30%; */
+      width: 100%;
+      margin-bottom: 20%;
+    }
 
-  </head>
-  <body class="container">
-    <h3 class="header">Frontend</h3>
-    <!-- <div id="buttons">
-      <button class="btn" id="weight-sort">Sort By Weight</button>
-      <button class="btn" id="name-sort">Sort By Name</button>
-    </div> -->
-    <table id="results">
-      <thead>
-        <tr>
-          <th id="title">Title</th>
-          <th id="link">Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Results from DB here -->
-      </tbody>
-    </table>
-    <script src="app.js"></script>
-  </body>
+    textarea,
+    input {
+      display: block;
+      width: 100%;
+    }
+
+    input {
+      height: 36px;
+      font-size: 24px;
+    }
+
+    textarea {
+      height: 200px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="jumbotron">
+          <h1 class="display-4">NPR Scraper!</h1>
+          <p class="lead"></p>
+          <hr class="my-5">
+        </div>
+        <div id="wrapper">
+          <div id="articles"></div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div id="wrapper">
+          <div id="comments"></div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
