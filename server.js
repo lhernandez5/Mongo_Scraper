@@ -35,9 +35,6 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 
-// Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/nprScraper");
-
 app.get("/scrape", function(req, res) {
   axios.get("https://www.npr.org/sections/news/").then(function(response) {
     var $ = cheerio.load(response.data);
