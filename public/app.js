@@ -19,12 +19,11 @@ $.getJSON("/api/articles", function(data) {
 });
 
 $(document).on("click", "#comment", function() {
-  // Empty the notes from the note section
+  // Empty the notes from the comment section
   $("#comments").empty();
 
   var thisId = $(this).attr("data-id");
 
-  // Now make an ajax call for the Article
   $.ajax({
     method: "GET",
     url: "/api/articles/" + thisId
@@ -47,9 +46,9 @@ $(document).on("click", "#comment", function() {
       commentP.append("<h2>" + data.title + "</h2>");
       // An input to enter a new title
       commentP.append("<input id='titleinput' name='title' placeholder='Title'>");
-      // A textarea to add a new note body
+      // A textarea to add a new comment body
       commentP.append("<textarea id='bodyinput' name='body' placeholder='Comment'></textarea>");
-      // A button to submit a new note, with the id of the article saved to it
+      // A button to submit a new comment, with the id of the article saved to it
       commentP.append(
         "<br><center><button type='button' class='btn btn-dark' data-id='" +
           data._id +
@@ -61,7 +60,7 @@ $(document).on("click", "#comment", function() {
       if (data.comment) {
         // Place the title of the note in the title input
         $("#titleinput").val(data.comment.title);
-        // Place the body of the note in the body textarea
+        // Place the body of the comment in the body textarea
         $("#bodyinput").val(data.comment.body);
       }
     });
