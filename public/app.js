@@ -18,12 +18,10 @@ $.getJSON("/api/articles", function(data) {
   }
 });
 
-// Whenever someone clicks a p tag
 $(document).on("click", "#comment", function() {
   // Empty the notes from the note section
   $("#comments").empty();
 
-  // Save the id from the p tag
   var thisId = $(this).attr("data-id");
 
   // Now make an ajax call for the Article
@@ -31,7 +29,6 @@ $(document).on("click", "#comment", function() {
     method: "GET",
     url: "/api/articles/" + thisId
   })
-    // With that done, add the note information to the page
     .then(function(data) {
       for (var i = 0; i < data.comment.length; i++) {
         $("#comments").append(
@@ -41,7 +38,7 @@ $(document).on("click", "#comment", function() {
             data.comment[i].body +
             "<button type='button' class='deletecomment btn btn-dark' data-id='" +
             data._id +
-            "' id='"+data.comment[i]._id+"'>Delete Comment</button></p><br /><hr>"
+            "' id='"+data.comment[i]._id+"'>Delete Comment</button></p><br><hr>"
         );
       }
 
@@ -84,8 +81,6 @@ $(document).on("click", "#savecomment", function(event) {
     }
   }).then(function(newComment) {
   });
-  // Empty the notes section
-  // $("#comments").empty();
 
   // Also, remove the values entered in the input and textarea for note entry
   $("#titleinput").val("");
