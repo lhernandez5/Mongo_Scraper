@@ -63,6 +63,7 @@ $(document).ready(function() {
           data._id +
           "' id='savecomment'>Save Comment</button></center>"
       );
+      $("#commentTextArea").empty();
       $("#commentTextArea").append(commentP);
 
       if (data.comment) {
