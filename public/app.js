@@ -51,9 +51,9 @@ $(document).on("click", "#comment", function() {
       commentP.append("<textarea id='bodyinput' name='body' placeholder='Comment'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       commentP.append(
-        "<br><button type='button' class='btn btn-light' data-id='" +
+        "<br><center><button type='button' class='btn btn-dark' data-id='" +
           data._id +
-          "' id='savecomment'>Save Comment</button>"
+          "' id='savecomment'>Save Comment</button></center>"
       );
       // If there's a note in the article
       $("#comments").append(commentP);
