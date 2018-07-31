@@ -15,7 +15,6 @@
   #comments {
     width: 100%;
     margin-bottom: 20%;
-    /* background-color: gray; */
     padding: 10%;
     border-radius: 25px;
   }
@@ -29,7 +28,6 @@
   input {
     display: block;
     width: 100%;
-    
   }
 
   input {

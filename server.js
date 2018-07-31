@@ -86,7 +86,6 @@ app.get("/api/articles/:id", function(req, res) {
 app.post("/api/articles/:id", function(req, res) {
   db.Comments.create(req.body)
     .then(function(dbComments) {
-      // return db.Article.findOneAndUpdate({},{ comment: dbComments._id },{ new: true });
       return db.Article.findByIdAndUpdate({ _id: req.params.id }, { $push: { comment: dbComments._id } },{ new: true });
     })
     .then(function(dbArticle) {
