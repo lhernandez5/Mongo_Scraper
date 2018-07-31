@@ -98,8 +98,8 @@ app.post("/api/articles/:id", function(req, res) {
 
 app.delete("/api/articles/:id", function(req, res) {
   db.Comments.remove({ _id: req.params.id})
-    .then(function() {
-      res.end();
+    .then(function(dbArticle) {
+      res.json(dbArticle);
   });
 });
 

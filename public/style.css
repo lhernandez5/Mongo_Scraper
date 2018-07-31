@@ -70,7 +70,13 @@
   .lead{
     background-color: rgba(80, 82, 71, 0.897);
     color: whitesmoke;
-    width: 50%;
+    width: 60%;
+  }
+  .card-text{
+    background-color: black;
+    color: whitesmoke;
+    width: 100%;
+    padding: 2%;
   }
   #bodyinput, #titleinput{
     border-radius: 5px;
