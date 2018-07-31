@@ -4,16 +4,16 @@ $.getJSON("/api/articles", function(data) {
   for (var i = 0; i < data.length; i++) {
     // Display the articles information on the page
     $("#articles").append(
-      "<p data-id='" +
+      "<div class='card' data-id='" +
         data[i]._id +
-        "'>" +
+        "'><p id='title'>" +
         data[i].title +
-        "<br />" +
+        "</p><p id='summary'>" +
         data[i].summary +
-        "<br /><a href=" +
+        "<br><a href=" +
         data[i].link +
-        ">"+data[i].link+"</a></p><button id='comment' type='button' class='btn btn-dark' data-id='" +
-        data[i]._id +"'>Comment</button><hr>"
+        ">"+data[i].link+"</a></p><center><button id='comment' type='button' class='btn btn-dark' data-id='" +
+        data[i]._id +"'>Comment</button></center></div><hr>"
     );
   }
 });
@@ -35,11 +35,11 @@ $(document).on("click", "#comment", function() {
     .then(function(data) {
       for (var i = 0; i < data.comment.length; i++) {
         $("#comments").append(
-          "<p>" +
+          "<p id='commentAdded'>Title: " +
             data.comment[i].title +
-            "<br />" +
+            "<br>Comment: " +
             data.comment[i].body +
-            "   <button type='button' class='deletecomment btn btn-dark' data-id='" +
+            "<button type='button' class='deletecomment btn btn-dark' data-id='" +
             data._id +
             "' id='"+data.comment[i]._id+"'>Delete Comment</button></p><br /><hr>"
         );
@@ -49,12 +49,12 @@ $(document).on("click", "#comment", function() {
       // The title of the article
       commentP.append("<h2>" + data.title + "</h2>");
       // An input to enter a new title
-      commentP.append("<input id='titleinput' name='title' >");
+      commentP.append("<input id='titleinput' name='title' placeholder='Title'>");
       // A textarea to add a new note body
-      commentP.append("<textarea id='bodyinput' name='body'></textarea>");
+      commentP.append("<textarea id='bodyinput' name='body' placeholder='Comment'></textarea>");
       // A button to submit a new note, with the id of the article saved to it
       commentP.append(
-        "<br /><button type='button' class='btn btn-warning' data-id='" +
+        "<br><button type='button' class='btn btn-light' data-id='" +
           data._id +
           "' id='savecomment'>Save Comment</button>"
       );

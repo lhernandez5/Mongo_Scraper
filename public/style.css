@@ -15,12 +15,21 @@
   #comments {
     width: 100%;
     margin-bottom: 20%;
+    /* background-color: gray; */
+    padding: 10%;
+    border-radius: 25px;
+  }
+  .btn.btn-dark{
+    width: 30%;
+    text-align: center;
+    margin-bottom:2%; 
   }
 
   textarea,
   input {
     display: block;
     width: 100%;
+    
   }
 
   input {
@@ -43,3 +52,29 @@
     width: 50%;
     text-align: center;
   }
+  #title{
+    font-weight:bold; 
+    font-size: 20px;
+  }
+  #commentAdded{
+    background-color: rgba(80, 82, 71, 0.897);
+    color: whitesmoke;
+    padding: 5%;
+  }
+  body{
+    background: rgb(175, 172, 172);
+  }
+  .card{
+    background-color: rgba(80, 82, 71, 0.897);
+    color: whitesmoke;
+    padding: 2%;
+  }
+  .deletecomment.btn.btn-dark{
+    float: right;
+  }
+  .lead{
+    background-color: rgba(80, 82, 71, 0.897);
+    color: whitesmoke;
+    width: 50%;
+  }
+
