@@ -63,7 +63,7 @@ $(document).ready(function() {
           data._id +
           "' id='savecomment'>Save Comment</button></center>"
       );
-      $("#comments").append(commentP);
+      $("#commentTextArea").append(commentP);
 
       if (data.comment) {
         // Place the title of the comment in the title input
