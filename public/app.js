@@ -3,7 +3,7 @@ $(document).ready(function() {
   $.getJSON("/api/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
       // Display the articles information on the page
-      $("#articles").append(
+      $("#articles").prepend(
         "<div class='card' data-id='" +
           data[i]._id +
           "'><p id='title'>" +
