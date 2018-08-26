@@ -60,6 +60,7 @@ app.get("/scrape", function(req, res) {
   });
 });
 
+// Route for grabbing a specific all Articles 
 app.get("/api/articles", function(req, res) {
   db.Article.find({})
     .then(function(dbArticle) {
@@ -96,6 +97,7 @@ app.post("/api/articles/:id", function(req, res) {
     });
 });
 
+// Route for seleting a specific Article by id
 app.delete("/api/articles/:id", function(req, res) {
   db.Comments.remove({ _id: req.params.id})
     .then(function(dbArticle) {
