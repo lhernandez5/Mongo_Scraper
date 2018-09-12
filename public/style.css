@@ -87,4 +87,8 @@
     color: whitesmoke;
     border-radius: 5px;
   }
+  .btn.btn-warning.scrape{
+    margin: 0% 0% 0% 40%;
+    font-weight: bold;
+  }
 

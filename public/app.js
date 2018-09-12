@@ -1,4 +1,5 @@
-$(document).ready(function() {
+// $(document).ready(function() {
+  $(document).on("click", ".btn.btn-warning.scrape", function() {
   // Grab the articles as a json
   $.getJSON("/api/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
